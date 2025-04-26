@@ -52,7 +52,7 @@ function addSnippet(options: WebWorkerOptions): Rule {
     const logMessage = 'console.log(`page got message: ${data}`);';
     const workerCreationSnippet = tags.stripIndent`
       if (typeof Worker !== 'undefined') {
-        // Create a new
+        // Create a new Web Worker
         const worker = new Worker(new URL('./${options.name}.worker', import.meta.url));
         worker.onmessage = ({ data }) => {
           ${logMessage}
